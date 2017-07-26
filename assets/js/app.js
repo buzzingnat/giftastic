@@ -9,7 +9,7 @@ var app = {
 	},
 	callAPI() {
 		$.ajax({
-	    url: "http://api.giphy.com/v1/gifs/search?q=" +
+	    url: "https://api.giphy.com/v1/gifs/search?q=" +
 	        this.query +
 	        "&api_key=6e43cda74f874688ae4d01684a876adb&limit=2",
 	    method: "GET"
