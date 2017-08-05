@@ -1,23 +1,27 @@
 var app = {
 	query: "",
 	initialize() {
-		$("button").on("click", function(){
-			console.log(this);
+		$(".buttonContainer").on("click", "button.query", function() {
 			app.query = $(this).text()
 			app.callAPI();
+		});
+		$(".addGifInput button").on("click", function(event) {
+			event.preventDefault();
+			var text = $(".addGifInput input").val();
+			if (text === "") return;
+			var $button = $(`<button type="button" class="btn btn-primary query">${text}</button>`);
+			$(".buttonContainer").append($button);
 		});
 	},
 	callAPI() {
 		$.ajax({
 	    url: "https://api.giphy.com/v1/gifs/search?q=" +
 	        this.query +
-	        "&api_key=6e43cda74f874688ae4d01684a876adb&limit=2",
+	        "&api_key=6e43cda74f874688ae4d01684a876adb&limit=10",
 	    method: "GET"
 		}).done(function(response) {
 		    var data = response.data; // an array
-		    console.log(data);
 		    app.buildAndDisplayStillImages(data);
-		    // this.buildandHideAnimatedImages();
 		});
 	},
 	buildAndDisplayStillImages(data) {
@@ -34,7 +38,6 @@ var app = {
 			var $imgAnimate = $(`<img src="${image.images.fixed_height.url}" `
 				+ `alt="animated: ${altText}" title="animated ${altText}" height="200" style="display: none;" class="imgAnimate">`);
 			var $caption = $(`<div class="caption"><p>Rating: ${image.rating.toUpperCase()}</p></div>`);
-			// $imgAnimate.hide();
 			$thumbnail
 				.append($imgStill)
 				.append($imgAnimate)
@@ -42,7 +45,6 @@ var app = {
 			$(".imageContainer").append($thumbnail);
 		}
 		$(".thumbnail").on("click", function(){
-			console.log("You clicked a thumbnail");
 			$(this).find(".imgStill").toggle();
 			$(this).find(".imgAnimate").toggle();
 		});
@@ -50,34 +52,3 @@ var app = {
 };
 
 $(app.initialize);
-
-/*
-var query = "macaw";
-$.ajax({
-    url: "http://api.giphy.com/v1/gifs/search?q=" +
-        query +
-        "&api_key=e4fb7f112ada4534a0c3471353e951c4&limit=10",
-    method: "GET"
-}).done(function(response) {
-	// var data = response.data[0];
-    // console.log([data.rating, data.images.fixed_height_still.url, data.images.fixed_height.url]);
-    var data = response.data;
-    console.log(data);
-    $(".thumbnail").each(function(index){
-    	var thisData = data[index];
-    	$(this).find("img")
-    		.attr("src", thisData.images.fixed_height_still.url)
-    		.attr("alt", thisData.tags)
-    		.attr("data-animate", thisData.images.fixed_height.url)
-    		.attr("data-still", thisData.images.fixed_height_still.url);
-    	$(this).find(".caption").html("Rating: " + thisData.rating.toUpperCase());
-    });
-});
-
-$("img").on("click", function(){
-	var animateLink = $(this).data("animate");
-	var stillLink = $(this).data("still");
-	if ($(this).attr("src") === stillLink) $(this).attr("src", animateLink);
-	else $(this).attr("src", stillLink)
-});
-*/

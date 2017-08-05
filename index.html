@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Trivia Game</title>
+    <title>GifTastic</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/stickyFooter.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -21,46 +22,31 @@
             <!-- /col -->
         </header>
         <section class="row">
-        	<div class="col-md-12">
-        		<button type="button" class="btn btn-primary">bird</button>
-        		<button type="button" class="btn btn-primary">plane</button>
-        		<button type="button" class="btn btn-primary">bat</button>
-        		<button type="button" class="btn btn-primary">rocket</button>
-        		<button type="button" class="btn btn-primary">drone</button>
-        		<button type="button" class="btn btn-primary">helicopter</button>
-        		<button type="button" class="btn btn-primary">kite</button>
-        		<button type="button" class="btn btn-primary">fireworks</button>
-        		<button type="button" class="btn btn-primary">bug</button>
-        		<button type="button" class="btn btn-primary">butterfly</button>
-        		<button type="button" class="btn btn-primary">dragonfly</button>
-        		<button type="button" class="btn btn-primary">dragon</button>
-        		<button type="button" class="btn btn-primary">pegasus</button>
-        		<button type="button" class="btn btn-primary">hippogriff</button>
+        	<div class="col-md-8">
+                <form class="buttonContainer">
+            		<button type="button" class="btn btn-primary query">bird</button>
+            		<button type="button" class="btn btn-primary query">plane</button>
+            		<button type="button" class="btn btn-primary query">super man</button>
+                </form>
         	</div>
+            <div class="col-md-4">
+                <form>
+                    <div class="input-group addGifInput">
+                        <input type="text" class="form-control" placeholder="Things that fly">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </section>
         <section class="row">
             <div class="col-md-12 imageContainer">
             <!--
                 <div class="thumbnail inline-thumbs">
 			        <img src="https://images.pexels.com/photos/475492/pexels-photo-475492.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="yellow birds" height="200">
-			        <div class="caption">
-			         	<p>Rating: G</p>
-			        </div>
-			    </div>
-			    <div class="thumbnail inline-thumbs">
-			        <img src="https://images.pexels.com/photos/158087/eagle-owl-eurasian-owl-wildlife-158087.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="owl" height="200">
-			        <div class="caption">
-			         	<p>Rating: G</p>
-			        </div>
-			    </div>
-			    <div class="thumbnail inline-thumbs">
-			        <img src="https://images.pexels.com/photos/506750/pexels-photo-506750.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="kingfisher" height="200">
-			        <div class="caption">
-			         	<p>Rating: G</p>
-			        </div>
-			    </div>
-			    <div class="thumbnail inline-thumbs">
-			        <img src="https://images.pexels.com/photos/162141/bullfinch-pyrrhula-bird-males-162141.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" alt="bullfinch" height="200">
 			        <div class="caption">
 			         	<p>Rating: G</p>
 			        </div>
@@ -79,7 +65,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="assets/js/copyright.js"></script>
-    <script src="assets/js/keywordList.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 
